@@ -9,7 +9,7 @@ namespace app\core;
 
 class Controller
 {
-    public static function render($view, $params = [])
+    public function render($view, $params = [])
     {
         return Application::$application->router->renderView($view, $params);
     }

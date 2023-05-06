@@ -7,26 +7,31 @@
 
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
 
 class SiteController extends Controller
 {
-    public static function home()
+    public  function home()
     {
         $data = [
             'name'=>"CoderBek2003_1",
         ];
-        return self::render('home',$data);
+        return $this->render('home',$data);
     }
 
-    public static function contact()
+    public  function contact()
     {
-        return self::render('contact');
+        return $this->render('contact');
     }
 
-    public static function about()
+    public  function handleContact()
     {
-        return self::render('about');
+        return $this->render('save');
+    }
+    public  function about()
+    {
+        return $this->render('about');
     }
 
 }

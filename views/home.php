@@ -8,7 +8,11 @@
 
 ?>
 
-<h3 style="background: blue; color: white; font-size: 40px; text-align: center; ">
+<h2 style="background: blue; color: white; font-size: 40px; text-align: center; ">
     Home Page
-</h3>
+</h2>
 
+
+<h3>
+  Welcome:  <?=$name?>
+</h3>

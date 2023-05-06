@@ -26,7 +26,7 @@
             <a href="/contact">Contact</a>
         </li>
         <li>
-            <a href="/">Home</a>
+            <a href="/about">About</a>
         </li>
 
     </ul>

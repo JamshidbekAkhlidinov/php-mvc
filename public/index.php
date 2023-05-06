@@ -11,14 +11,20 @@ error_reporting(E_ALL);
 
 
 use app\core\Application;
+use app\controllers\SiteController;
 
-require_once  "../vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 $app = new Application(dirname(__DIR__));
 
-$app->router->get('/','home');
+$app->router->get('/', [SiteController::class, 'home']);
+$app->router->get('/about', [SiteController::class, 'about']);
 
-$app->router->get('/contact','contact');
+$app->router->post('/', function () {
+    return "This is post method";
+});
+
+$app->router->get('/contact', [SiteController::class, 'contact']);
 
 $app->run();
 

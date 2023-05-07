@@ -8,6 +8,7 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\core\Request;
 
 class AuthController extends Controller
 {
@@ -16,19 +17,12 @@ class AuthController extends Controller
         return $this->render('auth/login');
     }
 
-    public function handleLogin()
+    public function register(Request $request)
     {
-        return "saved";
-    }
-
-    public function register()
-    {
+        if ($request->isPost()) {
+            return "User registered";
+        }
         return $this->render('auth/register');
-    }
-
-    public function handleRegister()
-    {
-        return "saved";
     }
 
 

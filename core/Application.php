@@ -47,4 +47,5 @@ class Application
     {
         $this->controller = $controller;
     }
+
 }

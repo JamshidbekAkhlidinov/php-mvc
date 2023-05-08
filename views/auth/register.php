@@ -16,11 +16,11 @@
     <div class="row mb-3">
         <div class="col-sm-6">
             <label class="form-label">First name</label>
-            <input type="text" name="firstname" class="form-control">
+            <input type="text" name="first_name" class="form-control">
         </div>
         <div class="col-sm-6">
             <label class="form-label">Last name</label>
-            <input type="text" name="lastname" class="form-control">
+            <input type="text" name="last_name" class="form-control">
         </div>
 
     </div>
@@ -30,9 +30,15 @@
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    <div class="row mb-3">
+        <div class="col-sm-6">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="col-sm-6">
+            <label for="exampleInputPassword1" class="form-label">Password Confirm</label>
+            <input type="password" name="confirmPassword" class="form-control" id="exampleInputPassword1">
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

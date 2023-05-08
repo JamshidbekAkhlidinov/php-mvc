@@ -9,6 +9,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+function dump($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
 
 use app\controllers\AuthController;
 use app\core\Application;
@@ -36,6 +42,8 @@ $app->router->get('/auth/register', [AuthController::class, 'register']);
 $app->router->post('/auth/register', [AuthController::class, 'register']);
 
 $app->run();
+
+
 
 ?>
 

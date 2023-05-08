@@ -30,10 +30,10 @@ $app->router->post('/contact', [SiteController::class, 'handleContact']);
 
 
 $app->router->get('/auth/login', [AuthController::class, 'login']);
-$app->router->post('/auth/login', [AuthController::class, 'handleLogin']);
+$app->router->post('/auth/login', [AuthController::class, 'login']);
 
 $app->router->get('/auth/register', [AuthController::class, 'register']);
-$app->router->post('/auth/register', [AuthController::class, 'handleRegister']);
+$app->router->post('/auth/register', [AuthController::class, 'register']);
 
 $app->run();
 

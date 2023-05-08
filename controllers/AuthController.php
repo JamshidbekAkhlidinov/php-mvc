@@ -12,8 +12,12 @@ use app\core\Request;
 
 class AuthController extends Controller
 {
-    public function login()
+    public function login(Request $request = null)
     {
+        if ($request != null && $request->isPost()) {
+            return "User login";
+        }
+        $this->setLayout('auth');
         return $this->render('auth/login');
     }
 
@@ -22,6 +26,7 @@ class AuthController extends Controller
         if ($request->isPost()) {
             return "User registered";
         }
+        $this->setLayout('auth');
         return $this->render('auth/register');
     }
 

@@ -15,15 +15,18 @@ class AuthController extends Controller
 {
     public function login(Request $request = null)
     {
+        $this->setLayout('auth');
+
         if ($request != null && $request->isPost()) {
             return "User login";
         }
-        $this->setLayout('auth');
         return $this->render('auth/login');
     }
 
     public function register(Request $request)
     {
+        $this->setLayout('auth');
+
         $model = new RegisterModel();
         if ($request->isPost()) {
             $model->loadData($request->getBody());
@@ -35,7 +38,6 @@ class AuthController extends Controller
                 'model' => $model,
             ]);
         }
-        $this->setLayout('auth');
         return $this->render('auth/register', [
             'model' => $model,
         ]);

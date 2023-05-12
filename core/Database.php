@@ -25,8 +25,33 @@ class Database
         $appliedMigration = $this->getApplicationMigrations();
         $files = scandir(Application::$ROOT_DIR . "/migrations");
         $toApplyMigration = array_diff($files, $appliedMigration);
+        $newMigrations = [];
+        foreach ($toApplyMigration as $migration) {
+            if ($migration === '.' || $migration == '..') {
+                continue;
+            }
 
-        dump($toApplyMigration);
+            require_once Application::$ROOT_DIR . "/migrations/" . $migration;
+            $className = pathinfo($migration, PATHINFO_FILENAME);
+            $instance = new $className();
+            $this->log("Applying migration $migration");
+            $instance->up();
+            $this->log("Applied migration $migration");
+            $newMigrations[] = $migration;
+        }
+
+        if (!empty($newMigrations)) {
+            $this->saveMigrations($newMigrations);
+        } else {
+            $this->log("All migrations are applied");
+        }
+    }
+
+    public function saveMigrations(array $migrations)
+    {
+        $str = implode(",", array_map(fn($m) => "('$m')", $migrations));
+        $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $str");
+        $statement->execute();
     }
 
     public function createMigrationTable()
@@ -46,5 +71,10 @@ class Database
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    protected function log(string $message)
+    {
+        echo "[" . date('d-M Y H:i:s') . "] - " . $message . PHP_EOL;
     }
 }

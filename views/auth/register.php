@@ -6,7 +6,7 @@
  */
 
 /**
- * @var $model app\model\RegisterModel
+ * @var $model app\model\User
  */
 
 use app\core\form\Form;
@@ -19,8 +19,8 @@ use app\core\form\Form;
 
 <?php
 $form = Form::begin('','post');
-echo $form->field($model, 'first_name');
-echo $form->field($model, 'last_name');
+echo $form->field($model, 'firstname');
+echo $form->field($model, 'lastname');
 echo $form->field($model, 'email');
 echo $form->field($model, 'password')->passwordField();
 echo $form->field($model, 'confirmPassword')->passwordField();

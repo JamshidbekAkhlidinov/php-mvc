@@ -14,6 +14,7 @@ abstract class Model
     public const RULE_MIN = 'min';
     public const RULE_MAX = 'max';
     public const RULE_MATCH = 'match';
+    public const RULE_UNIQUE = 'unique';
 
     public array $errors = [];
 
@@ -56,6 +57,19 @@ abstract class Model
                 if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
                     $this->addError($attribute, self::RULE_MATCH, $rule);
                 }
+
+                if ($ruleName === self::RULE_UNIQUE) {
+                    $className = $rule['class'];
+                    $uniqueAttribute = $rule['attribute'] ?? $attribute;
+                    $tableName = $className::tableName();
+                    $statement = Application::$application->db->prepare("SELECT * FROM $tableName WHERE $uniqueAttribute = :attr");
+                    $statement->bindValue(":attr", $value);
+                    $statement->execute();
+                    $record = $statement->fetchObject();
+                    if ($record) {
+                        $this->addError($attribute, self::RULE_UNIQUE, ['field' => $attribute]);
+                    }
+                }
             }
         }
         return empty($this->errors);
@@ -66,11 +80,12 @@ abstract class Model
     public function errorMessage(): array
     {
         return [
-            self::RULE_REQUIRED => "This is required",
-            self::RULE_EMAIL => "This is not email",
-            self::RULE_MIN => "This is min element {min}",
-            self::RULE_MAX => "This is max element {max}",
-            self::RULE_MATCH => "This is not match",
+            self::RULE_REQUIRED => "This field is required",
+            self::RULE_EMAIL => "This  field must be valid email address",
+            self::RULE_MIN => "Min length of this field must be {min}",
+            self::RULE_MAX => "Max length of this field must be  {max}",
+            self::RULE_MATCH => "This field must be the same as {match}",
+            self::RULE_UNIQUE => "Record with this {field} already exits",
         ];
     }
 

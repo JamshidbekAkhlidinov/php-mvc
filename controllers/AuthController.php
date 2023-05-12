@@ -9,7 +9,7 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
-use app\model\RegisterModel;
+use app\model\User;
 
 class AuthController extends Controller
 {
@@ -27,19 +27,19 @@ class AuthController extends Controller
     {
         $this->setLayout('auth');
 
-        $model = new RegisterModel();
+        $user = new User();
         if ($request->isPost()) {
-            $model->loadData($request->getBody());
+            $user->loadData($request->getBody());
 
-            if($model->validate() && $model->register()){
+            if($user->validate() && $user->save()){
                 return "User registered success";
             }
             return $this->render('auth/register', [
-                'model' => $model,
+                'model' => $user,
             ]);
         }
         return $this->render('auth/register', [
-            'model' => $model,
+            'model' => $user,
         ]);
     }
 

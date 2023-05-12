@@ -12,7 +12,7 @@ class m0001_init
     public function up()
     {
         $db = Application::$application->db;
-        $sql = "CREATE TABLE users(
+        $sql = "CREATE TABLE user(
                     id int AUTO_INCREMENT PRIMARY KEY,
                     email VARCHAR(255) NOT NULL,
                     firstname VARCHAR(255),
@@ -26,7 +26,7 @@ class m0001_init
     public function down()
     {
         $db = Application::$application->db;
-        $sql = "DROP TABLE users";
+        $sql = "DROP TABLE user";
         $db->pdo->exec($sql);
     }
 }

@@ -15,6 +15,7 @@ class Application
     public Request $request;
     public Response $response;
     public Controller $controller;
+    public Session $session;
 
     public Database $db;
 
@@ -24,6 +25,7 @@ class Application
         self::$application = $this;
         $this->request = new Request();
         $this->response = new Response();
+        $this->session = new Session();
         $this->router = new Router($this->request, $this->response);
         $this->db = new Database($config['db']);
     }

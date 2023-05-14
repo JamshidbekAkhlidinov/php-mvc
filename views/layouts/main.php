@@ -36,16 +36,21 @@ use app\core\Application;
             <span class="navbar-text">
                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <?php if (Application::isGust()): ?>
-                    <li class="nav-item">
+                        <li class="nav-item">
                         <a class="nav-link" href="/auth/login">Login</a>
                     </li>
-                    <li class="nav-item">
+                        <li class="nav-item">
                         <a class="nav-link" href="/auth/register">Sign Up</a>
                     </li>
                     <?php else: ?>
-                    <li class="nav-item">
+                        <li class="nav-item">
+                        <a class="nav-link" href="/auth/profile">
+                            Profile
+                        </a>
+                    </li>
+                        <li class="nav-item">
                         <a class="nav-link" href="/auth/logout">
-                            <?=Application::$application->user->getName()?> (Logout)
+                            <?= Application::$application->user->getName() ?> (Logout)
                         </a>
                     </li>
                     <?php endif; ?>

@@ -11,11 +11,14 @@ namespace app\core;
 class Application
 {
     public static string $ROOT_DIR;
+
+    public string $layout = 'main';
+
     public static Application $application;
     public Router $router;
     public Request $request;
     public Response $response;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public Session $session;
     public Database $db;
 
@@ -45,7 +48,16 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        } catch (\Exception $exception) {
+            Application::$application
+                ->response
+                ->setStatusCode($exception->getCode());
+            echo $this->router->renderView('error', [
+                'exception' => $exception
+            ]);
+        }
     }
 
     public static function isGust()

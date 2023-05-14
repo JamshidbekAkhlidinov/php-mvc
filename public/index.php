@@ -5,9 +5,9 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 function dump($data)
 {
@@ -52,6 +52,8 @@ $app->router->post('/auth/login', [AuthController::class, 'login']);
 $app->router->get('/auth/register', [AuthController::class, 'register']);
 $app->router->post('/auth/register', [AuthController::class, 'register']);
 $app->router->get('/auth/logout', [AuthController::class, 'logout']);
+
+$app->router->get('/auth/profile', [AuthController::class, 'profile']);
 
 $app->run();
 

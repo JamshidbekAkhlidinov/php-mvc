@@ -5,9 +5,14 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
+/**
+ * @var $exception Exception
+ */
 
 ?>
 
 <h3 style="background: red; color: yellow; font-size: 30px; text-align: center; ">
-    Not found
+    <?= $exception->getCode() ?>
+    -
+    <?= $exception->getMessage() ?>
 </h3>

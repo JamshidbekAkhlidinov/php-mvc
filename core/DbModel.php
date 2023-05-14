@@ -13,10 +13,15 @@ abstract class DbModel extends Model
 
     abstract public function attributes(): array;
 
+    public static function primaryKey()
+    {
+        return 'id';
+    }
+
     public function save()
     {
         $attributes = $this->attributes();
-        $tableName = $this->tableName();
+        $tableName = static::tableName();
 
         try {
             $params = array_map(fn($attr) => ":$attr", $attributes);
@@ -37,10 +42,25 @@ abstract class DbModel extends Model
         }
     }
 
+    public function findOne($condition)
+    {
+        $tableName = static::tableName();;
+        $attributes = array_keys($condition);
+        $sql = implode(' AND ', array_map(fn($attr) => "$attr = :$attr", $attributes));
+        $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
+        foreach ($condition as $key => $item) {
+            $statement->bindValue(":$key", $item);
+        }
+        $statement->execute();
+        return $statement->fetchObject(static::class);
+    }
+
     public static function prepare($sql)
     {
         return Application::$application->db->pdo->prepare($sql);
     }
+
+
 
 }
 

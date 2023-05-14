@@ -1,6 +1,7 @@
 <?php
 use app\core\Application;
 
+dump(Application::$application->user);
 ?>
 
 <!doctype html>

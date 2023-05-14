@@ -8,7 +8,6 @@
 namespace app\model;
 
 use app\core\DbModel;
-use app\core\Model;
 
 class User extends DbModel
 {
@@ -20,6 +19,18 @@ class User extends DbModel
 
     public int $status = 0;
 
+
+    public function tableName(): string
+    {
+        return 'user';
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'firstname', 'lastname', 'email', 'password', 'status'
+        ];
+    }
 
     public function rules(): array
     {
@@ -41,18 +52,6 @@ class User extends DbModel
     }
 
 
-    public function tableName(): string
-    {
-        return 'user';
-    }
-
-    public function attributes(): array
-    {
-        return [
-            'firstname', 'lastname', 'email', 'password', 'status'
-        ];
-    }
-
     public function labels(): array
     {
         return [
@@ -61,8 +60,13 @@ class User extends DbModel
             'email' => "Email",
             'password' => "Password",
             'status' => "Status",
-            'confirmPassword'=>'Confirm password'
+            'confirmPassword' => 'Confirm password'
         ];
+    }
+
+    public function getName()
+    {
+        return $this->firstname . " " . $this->lastname;
     }
 
 

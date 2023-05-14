@@ -26,7 +26,7 @@ class AuthMiddleware extends BaseMiddleware
     public function execute()
     {
         if (Application::isGust()) {
-            if (empty($this->actions) || in_array(Application::$application->controller->action, $this->actions)) {
+            if (empty($this->actions) || in_array(Application::$app->controller->action, $this->actions)) {
                 throw new ForbiddenException();
             }
         }

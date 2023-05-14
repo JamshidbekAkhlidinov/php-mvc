@@ -48,8 +48,8 @@ class AuthController extends Controller
             $user->loadData($request->getBody());
 
             if ($user->validate() && $user->save()) {
-                Application::$application->session->setFlash('success', "Your success registration");
-                Application::$application->response->redirect('/');
+                Application::$app->session->setFlash('success', "Your success registration");
+                Application::$app->response->redirect('/');
             }
             return $this->render('auth/register', [
                 'model' => $user,
@@ -62,7 +62,7 @@ class AuthController extends Controller
 
     public function logout(Request $request, Response $response)
     {
-        Application::$application->logout();
+        Application::$app->logout();
         $response->redirect('/');
     }
 

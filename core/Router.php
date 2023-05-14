@@ -52,7 +52,7 @@ class Router
              * @var $controller Controller
              */
             $controller = new $callback[0]();
-            Application::$application->controller = $controller;
+            Application::$app->controller = $controller;
             $controller->action = $callback[1];
             $callback[0] = $controller;
 
@@ -74,9 +74,9 @@ class Router
     protected function layoutContent()
     {
         ob_start();
-        $layout = Application::$application->layout;
-        if (Application::$application->controller) {
-            $layout = Application::$application->controller->layout;
+        $layout = Application::$app->layout;
+        if (Application::$app->controller) {
+            $layout = Application::$app->controller->layout;
         }
         include_once Application::$ROOT_DIR . "/views/layouts/$layout.php";
         return ob_get_clean();

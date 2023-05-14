@@ -50,7 +50,7 @@ use app\core\Application;
                     </li>
                         <li class="nav-item">
                         <a class="nav-link" href="/auth/logout">
-                            <?= Application::$application->user->getName() ?> (Logout)
+                            <?= Application::$app->user->getName() ?> (Logout)
                         </a>
                     </li>
                     <?php endif; ?>
@@ -61,9 +61,9 @@ use app\core\Application;
 </nav>
 
 <div class="container">
-    <?php if (Application::$application->session->getFlash('success')): ?>
+    <?php if (Application::$app->session->getFlash('success')): ?>
         <div class="alert alert-success">
-            <?= Application::$application->session->getFlash('success') ?>
+            <?= Application::$app->session->getFlash('success') ?>
         </div>
     <?php endif; ?>
     {{content}}

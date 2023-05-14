@@ -1,7 +1,7 @@
 <?php
 use app\core\Application;
 
-dump(Application::$application->user);
+dump(Application::$app->user);
 ?>
 
 <!doctype html>
@@ -16,9 +16,9 @@ dump(Application::$application->user);
 <body>
 
 <div class="container">
-    <?php if (Application::$application->session->getFlash('success')): ?>
+    <?php if (Application::$app->session->getFlash('success')): ?>
         <div class="alert alert-success">
-            <?= Application::$application->session->getFlash('success') ?>
+            <?= Application::$app->session->getFlash('success') ?>
         </div>
     <?php endif; ?>
     {{content}}

@@ -14,7 +14,7 @@ class Application
 
     public string $layout = 'main';
 
-    public static Application $application;
+    public static Application $app;
     public Router $router;
     public Request $request;
     public Response $response;
@@ -29,7 +29,7 @@ class Application
     public function __construct($rootPath, $config)
     {
         self::$ROOT_DIR = $rootPath;
-        self::$application = $this;
+        self::$app = $this;
         $this->userClass = $config['userClass'];
         $this->request = new Request();
         $this->response = new Response();
@@ -51,7 +51,7 @@ class Application
         try {
             echo $this->router->resolve();
         } catch (\Exception $exception) {
-            Application::$application
+            Application::$app
                 ->response
                 ->setStatusCode($exception->getCode());
             echo $this->router->renderView('error', [
@@ -62,7 +62,7 @@ class Application
 
     public static function isGust()
     {
-        return !self::$application->user;
+        return !self::$app->user;
     }
 
     /**

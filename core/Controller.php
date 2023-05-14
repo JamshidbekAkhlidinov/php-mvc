@@ -22,7 +22,7 @@ class Controller
 
     public function render($view, $params = [])
     {
-        return Application::$application->router->renderView($view, $params);
+        return Application::$app->router->renderView($view, $params);
     }
 
     public function registerMiddlewares(BaseMiddleware $middleware)

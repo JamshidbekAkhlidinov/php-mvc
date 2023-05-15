@@ -5,7 +5,12 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
+/**
+ * @var $this app\core\View
+ * @var $name string
+ */
 
+$this->title = "Home";
 ?>
 
 <h2 style="background: blue; color: white; font-size: 40px; text-align: center; ">
@@ -14,5 +19,5 @@
 
 
 <h3>
-  Welcome:  <?=$name?>
+    Welcome: <?= $name ?>
 </h3>

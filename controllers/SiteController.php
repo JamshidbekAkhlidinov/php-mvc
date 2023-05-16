@@ -7,28 +7,39 @@
 
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
+use app\core\Request;
+use app\core\Response;
+use app\model\ContactForm;
 
 class SiteController extends Controller
 {
-    public  function home()
+    public function home()
     {
         $data = [
-            'name'=>"CoderBek2003_1",
+            'name' => "CoderBek2003_1",
         ];
-        return $this->render('home',$data);
+        return $this->render('home', $data);
     }
 
-    public  function contact()
+    public function contact(Request $request, Response $response)
     {
-        return $this->render('contact');
+        $form = new ContactForm();
+        if ($request->isPost()) {
+            $form->loadData($request->getBody());
+            if ($form->validate() && $form->save()) {
+                Application::$app->session->setFlash('success', "Send Messages");
+                $response->redirect('/');
+            }
+        }
+
+        return $this->render('contact', [
+            'model' => $form,
+        ]);
     }
 
-    public  function handleContact()
-    {
-        return $this->render('save');
-    }
-    public  function about()
+    public function about()
     {
         return $this->render('about');
     }

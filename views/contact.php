@@ -5,6 +5,11 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
+use app\core\form\Form;
+
+/**
+ * @var $model app\model\ContactForm
+ */
 
 ?>
 <h3 style="background: blue; color: white; font-size: 40px; text-align: center; ">
@@ -12,10 +17,9 @@
 </h3>
 
 
-<form action="" method="post">
-    <label>
-        Name:
-        <input type="text" name="name">
-    </label>
-    <input type="submit" value="Save">
-</form>
+<?php $form = Form::begin('','post'); ?>
+<?=$form->field($model, 'email') ?>
+<?=$form->field($model, 'subject') ?>
+<?=$form->field($model, 'body') ?>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+<?php Form::end(); ?>

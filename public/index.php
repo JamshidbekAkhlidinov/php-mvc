@@ -43,7 +43,7 @@ $app->router->post('/', function () {
 });
 
 $app->router->get('/contact', [SiteController::class, 'contact']);
-$app->router->post('/contact', [SiteController::class, 'handleContact']);
+$app->router->post('/contact', [SiteController::class, 'contact']);
 
 
 $app->router->get('/auth/login', [AuthController::class, 'login']);

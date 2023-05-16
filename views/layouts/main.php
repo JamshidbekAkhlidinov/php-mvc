@@ -54,7 +54,7 @@ use app\core\Application;
                     </li>
                         <li class="nav-item">
                         <a class="nav-link" href="/auth/logout">
-                            <?= Application::$app->user->getName() ?> (Logout)
+                            <?= Application::$app->user->getDisplayName() ?> (Logout)
                         </a>
                     </li>
                     <?php endif; ?>

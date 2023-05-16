@@ -20,6 +20,6 @@ use app\core\form\Form;
 <?php $form = Form::begin('','post'); ?>
 <?=$form->field($model, 'email') ?>
 <?=$form->field($model, 'subject') ?>
-<?=$form->field($model, 'body') ?>
+<?=$form->field($model, 'body')->textArea() ?>
     <button type="submit" class="btn btn-primary mt-2">Submit</button>
 <?php Form::end(); ?>

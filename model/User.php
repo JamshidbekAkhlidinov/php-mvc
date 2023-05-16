@@ -7,9 +7,10 @@
 
 namespace app\model;
 
-use app\core\DbModel;
 
-class User extends DbModel
+use app\core\UserModel;
+
+class User extends UserModel
 {
     public string $firstname = '';
     public string $lastname = '';
@@ -64,10 +65,8 @@ class User extends DbModel
         ];
     }
 
-    public function getName()
+    public function getDisplayName()
     {
         return $this->firstname . " " . $this->lastname;
     }
-
-
 }

@@ -9,41 +9,31 @@ namespace app\core\form;
 
 use app\core\Model;
 
-class Field
+class InputField extends BaseField
 {
-
     public const TYPE_TEXT = 'text';
     public const TYPE_PASSWORD = 'password';
     public const TYPE_EMAIL = 'email';
 
     public string $type;
-    public Model $model;
-    public string $attribute;
 
     public function __construct(Model $model, $attribute)
     {
-        $this->model = $model;
         $this->type = self::TYPE_TEXT;
-        $this->attribute = $attribute;
+        return parent::__construct($model, $attribute);
     }
 
-    public function __toString()
+    public function renderInput()
     {
         $model = $this->model;
         $attribute = $this->attribute;
         return sprintf('
-                <label class="form-label">%s</label>
-                <input type="%s" name="%s" value="%s" class="form-control %s" aria-describedby="dd">
-                <div class="invalid-feedback" id="dd">
-                    %s
-                </div>
+              <input type="%s" name="%s" value="%s" class="form-control %s">
         ',
-            $model->getLabel($attribute),
             $this->type,
             $attribute,
             $model->{$attribute},
             $model->hasError($attribute) ? 'is-invalid' : '',
-            $model->getFirstError($attribute),
         );
     }
 
@@ -52,4 +42,11 @@ class Field
         $this->type = self::TYPE_PASSWORD;
         return $this;
     }
+
+    public function textArea()
+    {
+        return new TextareaInput($this->model, $this->attribute);
+    }
+
+
 }

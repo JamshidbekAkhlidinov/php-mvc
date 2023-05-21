@@ -5,7 +5,7 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
-use app\core\Application;
+use akhlidinov\phpmvc\Application;
 
 class m0001_init
 {

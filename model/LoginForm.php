@@ -7,8 +7,8 @@
 
 namespace app\model;
 
-use app\core\Application;
-use app\core\Model;
+use akhlidinov\phpmvc\Application;
+use akhlidinov\phpmvc\Model;
 
 class LoginForm extends Model
 {

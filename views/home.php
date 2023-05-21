@@ -6,7 +6,7 @@
  */
 
 /**
- * @var $this app\core\View
+ * @var $this akhlidinov\phpmvc\View
  * @var $name string
  */
 

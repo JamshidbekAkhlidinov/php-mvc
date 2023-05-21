@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b29ce8d384646eaf53a44454488a5782",
+    "content-hash": "3dd31afc179dd274b30101b1cbf10000",
     "packages": [
+        {
+            "name": "akhlidinov/php-mvc-core",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JamshidbekAkhlidinov/php-mvc-core.git",
+                "reference": "df084d128a8b26cbc86d07b183b8c078bafb7d36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JamshidbekAkhlidinov/php-mvc-core/zipball/df084d128a8b26cbc86d07b183b8c078bafb7d36",
+                "reference": "df084d128a8b26cbc86d07b183b8c078bafb7d36",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "akhlidinov\\phpmvc\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Jamshidbek Akhlidinov",
+                    "email": "JamshidbekAkhlidinov@gmail.com"
+                }
+            ],
+            "description": "Framework",
+            "support": {
+                "issues": "https://github.com/JamshidbekAkhlidinov/php-mvc-core/issues",
+                "source": "https://github.com/JamshidbekAkhlidinov/php-mvc-core/tree/v1.0.1"
+            },
+            "time": "2023-05-21T12:14:54+00:00"
+        },
         {
             "name": "graham-campbell/result-type",
             "version": "v1.1.1",

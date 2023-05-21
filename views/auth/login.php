@@ -5,7 +5,7 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 
-use app\core\form\Form;
+use akhlidinov\phpmvc\form\Form;
 
 /**
  * @var $model app\model\LoginForm

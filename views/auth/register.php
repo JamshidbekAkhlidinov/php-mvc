@@ -9,7 +9,7 @@
  * @var $model app\model\User
  */
 
-use app\core\form\Form;
+use akhlidinov\phpmvc\form\Form;
 
 ?>
 

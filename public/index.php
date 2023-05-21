@@ -17,7 +17,7 @@ function dump($data)
 }
 
 use app\controllers\AuthController;
-use app\core\Application;
+use akhlidinov\phpmvc\Application;
 use app\controllers\SiteController;
 
 require_once dirname(__DIR__) . "/vendor/autoload.php";

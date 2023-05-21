@@ -7,10 +7,10 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
-use app\core\Response;
+use akhlidinov\phpmvc\Application;
+use akhlidinov\phpmvc\Controller;
+use akhlidinov\phpmvc\Request;
+use akhlidinov\phpmvc\Response;
 use app\model\ContactForm;
 
 class SiteController extends Controller

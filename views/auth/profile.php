@@ -5,7 +5,7 @@
  *   https://github.com/JamshidbekAkhlidinov
  */
 /**
- * @var $this app\core\View
+ * @var $this akhlidinov\phpmvc\View
  */
 
 $this->title = "Profile";

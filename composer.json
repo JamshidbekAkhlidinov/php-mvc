@@ -1,0 +1,19 @@
+{
+  "name": "jamshidbekakhlidinov/php-mvc-fremwork",
+  "authors": [
+    {
+      "name": "Jamshidbek Akhlidinov",
+      "email": "JamshidbekAkhlidinov@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.5",
+    "akhlidinov/php-mvc-core": "^1.0"
+  }
+}

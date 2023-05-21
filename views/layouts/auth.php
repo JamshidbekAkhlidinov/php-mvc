@@ -1,7 +1,6 @@
 <?php
-use app\core\Application;
+use akhlidinov\phpmvc\Application;
 
-dump(Application::$app->user);
 ?>
 
 <!doctype html>

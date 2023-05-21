@@ -1,17 +1,17 @@
 <?php
 /*
- *   Jamshidbek Akhlidinov
- *   6 - 5 2023 12:14:38
- *   https://github.com/JamshidbekAkhlidinov
- */
+*   Jamshidbek Akhlidinov
+*   6 - 5 2023 12:14:38
+*   https://github.com/JamshidbekAkhlidinov
+*/
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\middlewares\AuthMiddleware;
-use app\core\Request;
-use app\core\Response;
+use akhlidinov\phpmvc\Application;
+use akhlidinov\phpmvc\Controller;
+use akhlidinov\phpmvc\middlewares\AuthMiddleware;
+use akhlidinov\phpmvc\Request;
+use akhlidinov\phpmvc\Response;
 use app\model\LoginForm;
 use app\model\User;
 

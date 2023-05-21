@@ -1,9 +1,9 @@
 <?php
 
-use app\core\Application;
+use akhlidinov\phpmvc\Application;
 
 /**
- * @var $this app\core\View
+ * @var $this akhlidinov\phpmvc\View
  */
 
 ?>
